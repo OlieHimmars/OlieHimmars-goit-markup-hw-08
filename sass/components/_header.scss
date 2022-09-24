@@ -1,0 +1,346 @@
+.logo--black {
+    display: block;
+
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    @include text(24px, 700, 1.17, 0.03em);
+    color: $main-dark;
+
+    @media screen and (min-width: 768px) {
+        margin-right: 88px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        @include text(26px, 700, 1.19, 0.03em);
+        margin-right: 93px;
+    }
+}
+
+.logo__web--accent {
+    color: $main-blue;
+}
+
+.header {
+    border-bottom: 1px solid #ece;
+
+    &__container {
+        display: flex;
+        align-items: center;
+
+    }
+}
+
+.contacts__social-list{
+    display: none;
+}
+
+.header .nav {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+
+    .header .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    .menu-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav__item {
+        &:not(:last-child) {
+            margin-right: 50px;
+        }
+    }   
+}
+
+@media screen and (max-width: 767px) {
+
+    .menu-button__icon-cross {
+        display: none;
+    }
+
+    .menu-toggle {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: inline-flex;
+        padding: 0;
+
+        border: none;
+        cursor: pointer;
+        fill: $main-font-color;
+        background-color: transparent;
+        transition: fill 250ms $timing-function;
+        
+        &:hover,
+        &:focus-within &__icon-cross {
+            fill: $main-blue;
+        }
+    }
+
+    .header .nav {
+        width: 100%;
+        justify-content: space-between;
+        min-height: 60px;
+        position: relative;
+    }
+
+
+    .contacts__list {
+        display: none;
+    }
+    
+    .nav__list {
+        display: none;
+    }
+
+
+    .menu-container {
+        transform: scale(1.5, 0.5);;
+        transition: transform 250ms $timing-function;
+    }
+
+    .menu-container.is-open {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow-y: scroll;
+        margin-left: auto;
+        padding: 48px 40px;
+        z-index: 999;
+
+        background-color: $main-background-color;
+
+        transform: scale(1);
+        
+    }
+
+    .menu-container.is-open .menu-button__icon-menu {
+        display: none;
+    }
+
+    .menu-container.is-open .menu-button__icon-cross {
+        display: block;
+    }
+
+    .menu-container.is-open .contacts__list {
+        display: flex;
+        margin-bottom: 64px;
+        flex-flow: column-reverse;
+
+        .contacts__item:last-child .contacts__link {
+            @include text(34px, 500, 1.176, calc(1em/50));
+            color: $main-blue;
+        }
+
+        .contacts__item:first-child .contacts__link {
+            margin-top: 32px;
+            width: 100%;
+            @include text(24px, 500, 1.167, calc(1em/50));
+        }
+    }
+
+    .menu-container.is-open .contacts__social-list {
+        display: flex;
+        margin: 0;
+        list-style: none;
+        padding: 0;
+        
+    }
+
+    .menu-container.is-open .nav__list {
+        display: block;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .nav__item {
+        &:not(:last-child) {
+            margin-bottom: 32px;
+        }
+    }
+
+    .contacts__social-media {
+        text-decoration: none;
+        @include text(18px, 500, 1.22, 0.02em);
+        color: $main-blue;
+    }
+
+    .contacts__social-item:not(:last-child) {
+        padding-right: 10px;
+        margin-right: 10px;
+        border-right: 1px solid rgba(33, 33, 33, 0.2);
+    }   
+
+}
+
+.contacts__link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $secondary-font-color;
+    
+
+    transition: color 250ms $timing-function;
+
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+        @include text(12px, 500, 1.17, calc(1em/50));
+    }
+
+    @media screen and (min-width: 1200px) {
+        @include text(14px, 500, 1.14, calc(1em/50));
+    }
+
+    &:hover,
+    &:focus {
+        color: $main-blue;
+    }
+}
+
+.contacts__item + .contacts__item {
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+        margin-top: 10px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        margin-left: 30px;
+    }
+}
+
+.contacts__icon {
+    fill: currentColor;
+
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
+    
+    @media screen and (min-width: 768px) {
+     margin-right: 8px;
+     width: 14px;
+     height: 14px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        margin-right: 10px;
+        width: 16px;
+        height: 16px;
+    }
+}
+
+.contacts__envelope {
+
+    @media screen and (min-width: 768px) {
+        width: 14px;
+        height: 10px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 16px;
+        height: 12px;
+    }
+}
+
+.contacts__smartphone {
+
+    @media screen and (min-width: 768px) {
+        width: 10px;
+        height: 14px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 10px;
+        height: 16px;
+    }
+}
+
+.nav__link {
+    text-decoration: none;
+    color: $main-font-color;
+    @include text(40px, 500, 1.2, 0.02em);
+
+    transition: color 250ms $timing-function;
+
+    display: block;
+    
+    &:hover,
+    &:focus {
+        color: $main-blue;
+    }
+    
+    &--active {
+        color: $main-blue;
+    }
+
+    @media screen and (min-width: 768px) {
+
+    position: relative;
+    padding: 32px 0;
+    @include text(14px, 500, 1.14, calc(1em/50));
+
+        &--active::after {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0;
+                bottom: -1px;
+
+                width: 100%;
+                height: 4px;
+
+                background-color: $main-blue;
+                border-radius: 2px;
+        }   
+    }
+    
+}
+
+.contacts__list {
+    @extend %list;
+
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+    margin-left: 90px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        display: flex;
+        align-items: center;
+        margin-left: 315px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .contacts__social-list{
+        flex-wrap: wrap;
+    }
+
+    .contacts__social-media {
+        font-size: calc(.5rem + 1vmax);
+    }
+}
